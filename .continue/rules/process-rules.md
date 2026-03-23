@@ -117,12 +117,13 @@ You are inside a **cloud IDE** that is part of a wizard for building processes. 
 
 After writing or editing code, the admin must **sync** it back to the Rev-Ops platform:
 
-- **Option A — VS Code Extension**: Click the **"Sync Code"** button in the Rev-Ops sidebar panel (left side of the IDE). This is the recommended approach.
-- **Option B — Terminal command**: Run `bash sync.sh` in the terminal. This reads the project files and sends them to the backend.
+Click the **"Sync Code"** button in the Rev-Ops sidebar panel (left side of the IDE).
+
+**Note:** You (the AI) cannot sync code. Always tell the admin to click the Sync Code button.
 
 ### Important workflow notes
 
 - Both `pre_process/main.py` and `post_process/main.py` are synced together
 - Code changes are NOT automatically synced — the admin must explicitly sync
 - Secrets are injected as environment variables at runtime, not in this IDE
-- If the admin asks you to "sync" or "save", remind them to click Sync Code or run `bash sync.sh`
+- If the admin asks you to "sync" or "save", remind them to click the **Sync Code** button in the Rev-Ops sidebar panel (left side). You cannot do this for them.
