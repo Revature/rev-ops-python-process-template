@@ -103,3 +103,26 @@ except Exception as e:
     print(f"Error: {e}", file=sys.stderr)
     print(json.dumps({"success": False, "error": str(e)}))
 ```
+
+## Wizard Workflow
+
+You are inside a **cloud IDE** that is part of a wizard for building processes. Here's how the overall flow works:
+
+1. **Step 0 — Metadata**: Admin sets the process name, selects object, component, and toggles pre/post-process
+2. **Step 1 — Secrets** (optional): Admin selects which secrets each phase can access
+3. **Step 2 — Code Editor** (you are here): Admin writes pre-process and/or post-process scripts
+4. **Step 3 — Review & Create**: Admin reviews and saves the process
+
+### How to sync code back to the platform
+
+After writing or editing code, the admin must **sync** it back to the Rev-Ops platform:
+
+- **Option A — VS Code Extension**: Click the **"Sync Code"** button in the Rev-Ops sidebar panel (left side of the IDE). This is the recommended approach.
+- **Option B — Terminal command**: Run `bash sync.sh` in the terminal. This reads the project files and sends them to the backend.
+
+### Important workflow notes
+
+- Both `pre_process/main.py` and `post_process/main.py` are synced together
+- Code changes are NOT automatically synced — the admin must explicitly sync
+- Secrets are injected as environment variables at runtime, not in this IDE
+- If the admin asks you to "sync" or "save", remind them to click Sync Code or run `bash sync.sh`
